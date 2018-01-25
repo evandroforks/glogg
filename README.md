@@ -23,7 +23,7 @@ From original glogg description:
 ## Common features of klogg and glogg
 * Runs on Unix-like systems, Windows and Mac thanks to Qt5
 * Search results are displayed separately from original file
-* Supports Perl-compatible regular expressions 
+* Supports Perl-compatible regular expressions
 * Colorizes the log and search results
 * Displays a context view of where in the log the lines of interest are
 * Is fast and reads the file directly from disk, without loading it into memory
@@ -53,7 +53,7 @@ Unlike upstream klogg is using cmake to generate build files.
 * Qt libraries (version 5.7 or later). QtCore, QtGui, QtWidgets and QtConcurrent are required on all platforms. QtNetwork is required on Windows and Mac OS. On Linux either QtNetwork or QtDBus can be used (selected during build configuration). QtTest is needed to build and run tests.
 * pandoc to build documentation
 
-All other build dependencies are provided in 3rdparty directory. 
+All other build dependencies are provided in 3rdparty directory.
 
 ### Building on Linux and Mac
 ```
@@ -81,18 +81,18 @@ See `.travis.yml` for more information on build process.
 Assuming `QT5` environment variable contains full path to Qt installation root folder and
 Visual Studio 2017 Community Edition is used for C++ compiler (vsdevcmd batch file location depends on Visual Studio version):
 ```
-%QT5%\bin\qtenv2.bat
-call "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\Tools\vsdevcmd" -arch=x64
+"F:\Qt\5.10.0\msvc2017_64\bin\qtenv2.bat"
+"F:\VisualStudio2017\Common7\Tools\VsDevCmd.bat" -arch=x64
 cd <path_to_project_root>
 md build
 cd build
-cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_VERSION=X.X.X ../
-cmake --build . --config Release
+"D:\User\Documents\CMake\bin\cmake.exe" -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_VERSION=X.X.X ../
+"D:\User\Documents\CMake\bin\cmake.exe" --build . --config Release
 ```
 
 Change cmake generator to "Visual Studio 14 2015" (or "Visual Studio 15 2017" with recent cmake) to get solution files and build from IDE.
 
-Installer can be built with NSIS (requires documentation to be built). 
+Installer can be built with NSIS (requires documentation to be built).
 ```
 cd <path_to_project_root>
 md release
@@ -115,7 +115,7 @@ See `appveyor.yml` for more information on build process.
 
 ### Tests
 Test are built by default. To turn them off pass `-DBUILD_TESTS:BOOL=OFF` to cmake.
-Tests use google test and google mock (they are bundled with the project source) and require Qt5Test module. 
+Tests use google test and google mock (they are bundled with the project source) and require Qt5Test module.
 
 
 ## Contact
