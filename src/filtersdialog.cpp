@@ -88,8 +88,15 @@ void FiltersDialog::on_removeFilterButton_clicked()
         filterListWidget->setCurrentRow( -1 );
         delete filterListWidget->takeItem( index );
 
-        // Select the new item at the same index
-        filterListWidget->setCurrentRow( index );
+        int count = filterListWidget->count();
+        if ( index < count ) {
+            // Select the new item at the same index
+            filterListWidget->setCurrentRow( index );
+        }
+        else {
+            // or the previous index if it is at the end
+            filterListWidget->setCurrentRow( count - 1 );
+        }
     }
 }
 
@@ -168,10 +175,10 @@ void FiltersDialog::updatePropertyFields()
         backColorButton->setEnabled( true );
         upFilterButton->setEnabled( ( selectedRow_ > 0 ) ? true : false );
         downFilterButton->setEnabled( ( selectedRow_ < ( filterListWidget->count() - 1 ) ) ? true : false );
-
     }
     else {
-        // Nothing is selected, greys the buttons
+        // Nothing is selected, reset and disable the controls
+        patternEdit->clear();
         patternEdit->setEnabled( false );
         ignoreCaseCheckBox->setEnabled( false );
         foreColorButton->setEnabled( false );
